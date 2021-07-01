@@ -8,6 +8,7 @@ class MotorGroup():
         self.in1 = in1
         self.in2 = in2
         # pin Setup
+        GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.en, GPIO.OUT)
         GPIO.setup(self.in1, GPIO.OUT)
@@ -20,18 +21,18 @@ class MotorGroup():
     def forward(self, pwm = 50):
         GPIO.output(self.in1,GPIO.HIGH)
         GPIO.output(self.in2,GPIO.LOW)
-        self.pwm.changeDutyCycle(pwm)
+        self.pwm.ChangeDutyCycle(pwm)
 
     def backward(self,pwm = 50):
         GPIO.output(self.in1,GPIO.LOW)
         GPIO.output(self.in2,GPIO.HIGH)
-        self.pwm.changeDutyCycle(pwm)
+        self.pwm.ChangeDutyCycle(pwm)
 
     def stop(self):
         GPIO.output(self.in1,GPIO.LOW)
         GPIO.output(self.in2,GPIO.LOW)
-        
-                
+
+
 
 
 
@@ -42,5 +43,4 @@ if __name__ == "__main__":
     sleep(5)
     motorGroup_left.stop()
    # motorGroup_right = MotorGroup(22,4,27)
-        
 
