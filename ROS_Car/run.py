@@ -18,18 +18,18 @@ class MotorGroup():
         self.pwm.start(0)
 
     def forward(self, pwm = 50):
-        self.in1 = HIGH
-        self.in2 = LOW
+        GPIO.output(self.in1,GPIO.HIGH)
+        GPIO.output(self.in2,GPIO.LOW)
         self.pwm.changeDutyCycle(pwm)
 
     def backward(self,pwm = 50):
-        self.in1 = LOW
-        self.in2 = HIGH
+        GPIO.output(self.in1,GPIO.LOW)
+        GPIO.output(self.in2,GPIO.HIGH)
         self.pwm.changeDutyCycle(pwm)
 
     def stop(self):
-        self.in1 = LOW
-        self.in2 = LOW
+        GPIO.output(self.in1,GPIO.LOW)
+        GPIO.output(self.in2,GPIO.LOW)
         
                 
 
